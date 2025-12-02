@@ -69,8 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     { value: '17:00', text: '05:00 PM' },
                     { value: '17:30', text: '05:30 PM' },
                     { value: '18:00', text: '06:00 PM' },
-                    { value: '18:00', text: '06:30 PM' }
-
+                    { value: '18:00', text: '06:30 PM' },
                 ];
                 
                 weekdayTimes.forEach(function(time) {
