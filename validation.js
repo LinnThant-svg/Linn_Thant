@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     appointmentTime.appendChild(option);
                 });
             } 
-            // Weekday (Monday-Friday): 8:30am - 6:00pm
+            // Weekday (Monday-Friday): 8:30am - 6:30pm
             else {
                 const weekdayTimes = [
                     { value: '08:30', text: '08:30 AM' },
@@ -68,7 +68,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     { value: '16:30', text: '04:30 PM' },
                     { value: '17:00', text: '05:00 PM' },
                     { value: '17:30', text: '05:30 PM' },
-                    { value: '18:00', text: '06:00 PM' }
+                    { value: '18:00', text: '06:00 PM' },
+                    { value: '18:00', text: '06:30 PM' }
+
                 ];
                 
                 weekdayTimes.forEach(function(time) {
