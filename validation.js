@@ -15,6 +15,72 @@ document.addEventListener('DOMContentLoaded', function() {
     const serviceType = document.getElementById('serviceType');
     const firstVisitRadios = document.getElementsByName('firstVisit');
 
+    // DYNAMIC TIME SLOTS based on selected date (Weekday vs Weekend)
+    if (appointmentDate && appointmentTime) {
+        appointmentDate.addEventListener('change', function() {
+            const selectedDate = new Date(this.value);
+            const dayOfWeek = selectedDate.getDay(); // 0 = Sunday, 6 = Saturday
+            
+            // Clear existing options except the first one
+            appointmentTime.innerHTML = '<option value="">Select a time</option>';
+            
+            // Weekend (Saturday = 6, Sunday = 0): 8:30am - 1:00pm
+            if (dayOfWeek === 0 || dayOfWeek === 6) {
+                const weekendTimes = [
+                    { value: '08:30', text: '08:30 AM' },
+                    { value: '09:00', text: '09:00 AM' },
+                    { value: '09:30', text: '09:30 AM' },
+                    { value: '10:00', text: '10:00 AM' },
+                    { value: '10:30', text: '10:30 AM' },
+                    { value: '11:00', text: '11:00 AM' },
+                    { value: '11:30', text: '11:30 AM' },
+                    { value: '12:00', text: '12:00 PM' },
+                    { value: '12:30', text: '12:30 PM' },
+                    { value: '13:00', text: '01:00 PM' }
+                ];
+                
+                weekendTimes.forEach(function(time) {
+                    const option = document.createElement('option');
+                    option.value = time.value;
+                    option.textContent = time.text;
+                    appointmentTime.appendChild(option);
+                });
+            } 
+            // Weekday (Monday-Friday): 8:30am - 6:00pm
+            else {
+                const weekdayTimes = [
+                    { value: '08:30', text: '08:30 AM' },
+                    { value: '09:00', text: '09:00 AM' },
+                    { value: '09:30', text: '09:30 AM' },
+                    { value: '10:00', text: '10:00 AM' },
+                    { value: '10:30', text: '10:30 AM' },
+                    { value: '11:00', text: '11:00 AM' },
+                    { value: '11:30', text: '11:30 AM' },
+                    { value: '12:00', text: '12:00 PM' },
+                    { value: '12:30', text: '12:30 PM' },
+                    { value: '13:00', text: '01:00 PM' },
+                    { value: '13:30', text: '01:30 PM' },
+                    { value: '14:00', text: '02:00 PM' },
+                    { value: '14:30', text: '02:30 PM' },
+                    { value: '15:00', text: '03:00 PM' },
+                    { value: '15:30', text: '03:30 PM' },
+                    { value: '16:00', text: '04:00 PM' },
+                    { value: '16:30', text: '04:30 PM' },
+                    { value: '17:00', text: '05:00 PM' },
+                    { value: '17:30', text: '05:30 PM' },
+                    { value: '18:00', text: '06:00 PM' }
+                ];
+                
+                weekdayTimes.forEach(function(time) {
+                    const option = document.createElement('option');
+                    option.value = time.value;
+                    option.textContent = time.text;
+                    appointmentTime.appendChild(option);
+                });
+            }
+        });
+    }
+
     // Validation functions
     function validateName() {
         const nameValue = fullName.value.trim();
