@@ -964,3 +964,32 @@ nav a.active {
     padding: 1rem;
     border-radius: 6px;
     font-size: 1.1rem;}
+
+
+
+    .success-box {
+    background-color: #d4f7d4; /* light green */
+    border-left: 6px solid #2e8b57; /* darker green accent */
+    padding: 16px 20px;
+    margin-top: 20px;
+    border-radius: 6px;
+    animation: fadeIn 0.4s ease;
+}
+
+.success-box h4 {
+    margin: 0 0 8px;
+    color: #2e8b57;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.success-box p {
+    margin: 0;
+    color: #1e5f3b;
+    font-size: 1rem;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
